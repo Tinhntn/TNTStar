@@ -24,20 +24,12 @@ public class GenreDTO {
     @Size(min = 1, max = 255, message = "Food name exceed the allowed number of characters")
     private  String genreName;
 
-    @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     private boolean status;
 
     public GenreDTO(Genre genre) {
         this.genreCode = genre.getGenreCode();
         this.genreName = genre.getGenreName();
-        this.createdDate = genre.getCreatedDate();
-        this.modifiedDate = genre.getModifiedDate();
         this.status = genre.isStatus();
     }
 }

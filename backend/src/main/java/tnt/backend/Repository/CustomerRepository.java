@@ -6,4 +6,5 @@ import tnt.backend.Entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+    boolean existsByCustomerCode(String customerCode);
 }

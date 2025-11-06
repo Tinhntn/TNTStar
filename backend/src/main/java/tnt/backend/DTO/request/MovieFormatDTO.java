@@ -23,20 +23,11 @@ public class MovieFormatDTO {
     @Min(value = 0, message = "Invalid Format id!")
     private int idFormat;
 
-    @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     private boolean status;
 
     public MovieFormatDTO(MovieFormat movieFormat){
         this.idMovie = movieFormat.getMovie().getId();
         this.idFormat = movieFormat.getFormat().getId();
-        this.createdDate = movieFormat.getCreatedDate();
-        this.modifiedDate = movieFormat.getModifiedDate();
         this.status = movieFormat.isStatus();
     }
 }

@@ -32,12 +32,6 @@ public class DirectorDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     @NotEmpty(message = "Director depcription can't be empty")
     @Size(min = 1, max = 255,message = "Depcription exceed the allowed number of charactors")
@@ -49,8 +43,6 @@ public class DirectorDTO {
         this.directorCode = director.getDirectorCode();
         this.fullName = director.getFullname();
         this.dateOfBirth = director.getDateOfBirth();
-        this.createdDate = director.getCreatedDate();
-        this.modifiedDate = director.getModifiedDate();
         this.depcription = director.getDepcription();
         this.status = director.isStatus();
     }

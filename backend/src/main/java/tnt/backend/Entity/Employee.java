@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tnt.backend.DTO.request.EmployeeDTO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -57,4 +58,15 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private List<Invoice> invoices  = new ArrayList<>();
+
+    public Employee(EmployeeDTO employeeDTO,Position position) {
+        this.position = position;
+        this.firstName = employeeDTO.getFirstName();
+        this.lastName = employeeDTO.getLastName();
+        this.dateOfBirth = employeeDTO.getDateOfBirth();
+        this.phoneNumber = employeeDTO.getPhoneNumber();
+        this.email = employeeDTO.getEmail();
+        this.password = employeeDTO.getPassword();
+        this.status = employeeDTO.isStatus();
+    }
 }

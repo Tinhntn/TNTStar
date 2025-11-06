@@ -21,8 +21,20 @@ public class Voucher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer id;
 
+    @Column(name = "voucher_code")
+    private String voucherCode;
+
+    @Column(name = "voucher_name")
+    private String voucherName;
+
+    @Column(name = "core_value")
+    private int coreValue;
+
     @Column(name = "quantity")
     private  int quantity;
+
+    @Column(name = "quantity_used")
+    private int quantityUsed;
 
     @Column(name = "voucher_type")
     private  boolean voucherType;

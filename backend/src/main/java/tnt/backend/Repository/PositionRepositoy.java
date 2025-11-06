@@ -6,4 +6,5 @@ import tnt.backend.Entity.Position;
 
 @Repository
 public interface PositionRepositoy extends JpaRepository<Position, Integer> {
+    boolean existsByPositionCode(String positionCode);
 }

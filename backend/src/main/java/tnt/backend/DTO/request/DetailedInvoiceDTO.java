@@ -28,13 +28,6 @@ public class DetailedInvoiceDTO {
     private double quantity;
 
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0,message = "Invalid id creator!")
     private int idCreator;
@@ -48,8 +41,6 @@ public class DetailedInvoiceDTO {
         this.idInvoice = detailedInvoice.getInvoice().getId();
         this.idTicket = detailedInvoice.getTicket().getId();
         this.quantity = detailedInvoice.getQuantity();
-        this.createdDate = detailedInvoice.getCreatedDate();
-        this.modifiedDate = detailedInvoice.getModifiedDate();
         this.idCreator = detailedInvoice.getCreator().getId();
         this.idEditor = detailedInvoice.getEditor().getId();
         this.status = detailedInvoice.isStatus();

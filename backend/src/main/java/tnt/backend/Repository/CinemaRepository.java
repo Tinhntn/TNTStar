@@ -6,4 +6,5 @@ import tnt.backend.Entity.Cinema;
 
 @Repository
 public interface CinemaRepository extends JpaRepository<Cinema, Integer> {
+    boolean existsByCinemaCode(String cinemaCode);
 }

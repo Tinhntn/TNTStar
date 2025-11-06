@@ -52,7 +52,6 @@ public class Chairs {
         this.room =room;
         this.row = row;
         this.chairName = chairsDTO.getChairName();
-        this.createdDate = chairsDTO.getCreatedDate();
         this.creator = creator;
         this.status = chairsDTO.isStatus();
     }

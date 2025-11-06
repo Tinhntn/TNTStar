@@ -23,20 +23,12 @@ public class MovieLanguageDTO {
     @Min(value = 0, message = "Invalid Language id!")
     private int idLanguage;
 
-    @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     private boolean status;
 
     public MovieLanguageDTO(MovieLanguage movieLanguage) {
         this.idMovie = movieLanguage.getMovie().getId();
         this.idLanguage = movieLanguage.getLanguage().getId();
-        this.createdDate = movieLanguage.getCreatedDate();
-        this.modifiedDate = movieLanguage.getModifiedDate();
         this.status = movieLanguage.isStatus();
     }
 }

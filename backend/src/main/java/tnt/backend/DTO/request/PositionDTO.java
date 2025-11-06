@@ -18,7 +18,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PositionDTO {
-    @NotEmpty(message = "Position code can't be empty")
     @Size(min = 1, max = 50, message = "Position code exceed the allowed number of characters")
     private String positionCode;
 
@@ -26,20 +25,12 @@ public class PositionDTO {
     @Size(min=0, max = 255, message = "Position name exceed the allowed number of characters")
     private String positionName;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     private boolean status;
 
     public PositionDTO(Position position){
         this.positionCode = position.getPositionCode();
         this.positionName = position.getPositionName();
-        this.createdDate = position.getCreatedDate();
-        this.modifiedDate = position.getModifiedDate();
         this.status = position.isStatus();
     }
 }

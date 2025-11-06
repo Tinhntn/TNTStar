@@ -35,13 +35,6 @@ public class TicketDTO {
     private double price;
 
     @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
-    @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
     private int idCreator;
 
@@ -54,8 +47,6 @@ public class TicketDTO {
         this.ticketCode = ticket.getTicketCode();
         this.idChairs = ticket.getChairs().getId();
         this.price = ticket.getPrice();
-        this.createdDate = ticket.getCreatedDate();
-        this.modifiedDate = ticket.getModifiedDate();
         this.idCreator= ticket.getCreator().getId();
         this.idEditor= ticket.getEditor().getId();
         this.status = ticket.isStatus();

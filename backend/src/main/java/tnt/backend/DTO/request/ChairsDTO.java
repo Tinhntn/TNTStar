@@ -34,13 +34,6 @@ public class ChairsDTO {
     @Size(min=1, max = 20,message = "Chair name exceed the allowed number of characters")
     private String chairName;
 
-    @NotNull(message = "Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0,message = "Invalid id creator!")
     private int idCreator;
@@ -54,8 +47,6 @@ public class ChairsDTO {
         this.idRoom = chairs.getRoom().getId();
         this.idRow = chairs.getRow().getId();
         this.chairName = chairs.getChairName();
-        this.createdDate = chairs.getCreatedDate();
-        this.modifiedDate = chairs.getModifiedDate();
         this.idCreator = chairs.getCreator().getId();
         this.idEditor = chairs.getEditor().getId();
         this.status = chairs.isStatus();
@@ -65,8 +56,6 @@ public class ChairsDTO {
         chairsDTO.setIdRoom(chairs.getId());
         chairsDTO.setIdRow(chairs.getId());
         chairsDTO.setChairName(chairs.getChairName());
-        chairsDTO.setCreatedDate(chairs.getCreatedDate());
-        chairsDTO.setModifiedDate(chairs.getModifiedDate());
         chairsDTO.setStatus(chairs.isStatus());
         return chairsDTO;
     }

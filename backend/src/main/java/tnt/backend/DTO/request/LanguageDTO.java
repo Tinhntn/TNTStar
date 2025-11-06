@@ -25,20 +25,12 @@ public class LanguageDTO {
     @Size(min = 1, max = 255, message = "Food name exceed the allowed number of characters")
     private String languageName;
 
-    @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     private boolean status;
 
     public LanguageDTO(Language language){
         this.languageCode = language.getLanguageCode();
         this.languageName = language.getLanguageName();
-        this.createdDate = language.getCreatedDate();
-        this.modifiedDate = language.getModifiedDate();
         this.status = language.isStatus();
     }
 }

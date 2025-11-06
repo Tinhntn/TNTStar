@@ -36,12 +36,6 @@ public class RoomDTO {
     @Size(min = 1, max = 50, message = "Room code exceed the allowed number of characters")
     private String roomCode;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
@@ -56,8 +50,6 @@ public class RoomDTO {
         this.idCinema = room.getCinema().getId();
         this.idShow = room.getShows().getId();
         this.roomCode = room.getRoomCode();
-        this.createdDate = room.getCreatedDate();
-        this.modifiedDate = room.getModifiedDate();
         this.idCreator = room.getCreator().getId();
         this.idEditor = room.getEditor().getId();
         this.status = room.isStatus();

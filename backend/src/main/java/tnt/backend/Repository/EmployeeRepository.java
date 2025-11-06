@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import tnt.backend.Entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
+    boolean existsEmployeeByStaffCode(String staffCode);
 }

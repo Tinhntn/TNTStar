@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tnt.backend.DTO.request.CustomerDTO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -69,4 +70,19 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<Invoice> invoices  = new ArrayList<>();
+
+    public Customer(Voucher voucher, CustomerDTO customerDTO)  {
+        this.voucher = voucher;
+        this.customerCode = customerDTO.getCustomerCode();
+        this.firstName = customerDTO.getFirstName();
+        this.lastName = customerDTO.getLastName();
+        this.dateOfBirth = customerDTO.getDateOfBirth();
+        this.phoneNumber = customerDTO.getPhoneNumber();
+        this.email = customerDTO.getEmail();
+        this.password = customerDTO.getPassword();
+        this.point = customerDTO.getPoint();
+        this.address = customerDTO.getAddress();
+        this.membershipLevel = customerDTO.getMembershipLevel();
+        this.status = customerDTO.isStatus();
+    }
 }

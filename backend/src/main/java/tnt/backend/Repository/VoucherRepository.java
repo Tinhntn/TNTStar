@@ -6,4 +6,5 @@ import tnt.backend.Entity.Voucher;
 
 @Repository
 public interface VoucherRepository extends JpaRepository<Voucher, Integer> {
+    boolean existsByVoucherCode(String voucherCode);
 }

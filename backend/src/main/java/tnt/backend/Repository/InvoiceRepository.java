@@ -6,4 +6,5 @@ import tnt.backend.Entity.Invoice;
 
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
+    boolean existsByInvoiceCode(String invoiceCode);
 }

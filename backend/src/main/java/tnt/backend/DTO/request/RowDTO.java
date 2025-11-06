@@ -27,13 +27,6 @@ public class RowDTO {
     @Size(min=0, max = 255, message = "Row name exceed the allowed number of characters")
     private String rowName;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
     private int idCreator;
@@ -46,8 +39,6 @@ public class RowDTO {
     public RowDTO(Row row){
         this.idRoom = row.getId();
         this.rowName = row.getRowName();
-        this.createdDate = row.getCreatedDate();
-        this.modifiedDate = row.getModifiedDate();
         this.idCreator = row.getCreator().getId();
         this.idEditor = row.getEditor().getId();
         this.status = row.isStatus();

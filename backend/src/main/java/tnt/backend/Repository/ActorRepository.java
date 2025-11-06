@@ -10,4 +10,6 @@ import tnt.backend.Entity.Actor;
 public interface ActorRepository extends JpaRepository<Actor,Integer> {
 
     Page<Actor> findAll(Pageable pageable);
+
+    boolean existsActorByActorCode(String actorCode);
 }

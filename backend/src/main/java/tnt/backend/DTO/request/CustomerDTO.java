@@ -18,11 +18,9 @@ public class CustomerDTO {
     @Min(value = 0,message = "Invalid voucher id!")
     private int idVoucher;
 
-    @NotEmpty(message = "Cinema code can't be empty")
     @Size(min = 1, max = 50, message = "Cinema code exceed the allowed number of characters")
     private String customerCode;
 
-    @NotEmpty(message = "Firstname can't be empty")
     @Size(min=0, max = 255, message = "Firstname exceed the allowed number of characters")
     private String firstName;
 
@@ -59,13 +57,6 @@ public class CustomerDTO {
     @Min(value = 0, message = " Invalid membership level")
     private int membershipLevel;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     private boolean status;
 
     public CustomerDTO(Customer customer){
@@ -80,8 +71,6 @@ public class CustomerDTO {
         this.point = customer.getPoint();
         this.address = customer.getAddress();
         this.membershipLevel = customer.getMembershipLevel();
-        this.createdDate = customer.getCreatedDate();
-        this.modifiedDate = customer.getModifiedDate();
         this.status = customer.isStatus();
     }
 }

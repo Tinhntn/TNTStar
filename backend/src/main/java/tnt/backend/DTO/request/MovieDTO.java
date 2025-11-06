@@ -62,13 +62,6 @@ public class MovieDTO {
     @Min(value = 0, message = "Invalid age")
     private Integer ageLimit;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     private boolean status;
 
     public MovieDTO(Movie movie) {
@@ -83,8 +76,6 @@ public class MovieDTO {
         this.trailer = movie.getTrailer();
         this.depcription = movie.getDepcription();
         this.ageLimit = movie.getAgeLimit();
-        this.createdDate = movie.getCreatedDate();
-        this.modifiedDate = movie.getModifiedDate();
         this.status = movie.isStatus();
     }
 }

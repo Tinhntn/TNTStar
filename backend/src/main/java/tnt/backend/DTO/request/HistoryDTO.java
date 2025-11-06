@@ -32,20 +32,11 @@ public class HistoryDTO {
     @Min(value = 0, message = "Invalid customer id")
     private int idCustomer;
 
-    @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     private boolean status;
 
     public HistoryDTO(History history){
         this.idInvoice =  history.getInvoice().getId();
         this.idCustomer = history.getCustomer().getId();
-        this.createdDate = history.getCreatedDate();
-        this.modifiedDate = history.getModifiedDate();
         this.status = history.isStatus();
     }
 }

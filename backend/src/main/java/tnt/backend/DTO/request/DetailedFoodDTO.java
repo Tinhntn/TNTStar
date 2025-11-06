@@ -30,12 +30,6 @@ public class DetailedFoodDTO {
     @Min(value = 0, message = "Invalid quantity")
     private int quantity;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0,message = "Invalid id creator!")
@@ -51,8 +45,6 @@ public class DetailedFoodDTO {
         this.idFood = detailedFood.getFood().getId();
         this.price = detailedFood.getFood().getPrice();
         this.quantity = detailedFood.getQuantity();
-        this.createdDate = detailedFood.getCreatedDate();
-        this.modifiedDate = detailedFood.getModifiedDate();
         this.idCreator = detailedFood.getCreator().getId();
         this.idEditor = detailedFood.getEditor().getId();
         this.status = detailedFood.isStatus();

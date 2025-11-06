@@ -50,8 +50,6 @@ public class Actor {
     public void loadActor(ActorDTO actorDTO) {
         this.fullName = actorDTO.getFullName();
         this.dateOfBirth = actorDTO.getDateOfBirth();
-        this.createdDate = actorDTO.getCreatedDate();
-        this.modifiedDate = actorDTO.getModifiedDate();
         this.describe = actorDTO.getDescribe();
         this.status = actorDTO.isStatus();
     }

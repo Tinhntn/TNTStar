@@ -2,6 +2,8 @@ package tnt.backend.Controller;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -20,9 +22,10 @@ public class ActorController {
     ActorService actorService;
 
     @GetMapping()
-    public ResponseEntity<?> findAll() {
-
-        return ResponseEntity.ok(actorService.findAll());
+    public ResponseEntity<?> findAll(@RequestParam (defaultValue = "0") int page,
+                                     @RequestParam (defaultValue = "5") int size) throws BadRequestException {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(actorService.findAll(pageable));
     }
 
     @GetMapping("/{id}")

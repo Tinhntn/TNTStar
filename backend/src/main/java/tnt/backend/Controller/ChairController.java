@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tnt.backend.DTO.request.ActorDTO;
 import tnt.backend.DTO.request.ChairsDTO;
+import tnt.backend.Exception.BadRequestException;
 import tnt.backend.Service.ChairService;
 
 @RestController
@@ -26,6 +27,10 @@ public class ChairController {
         return ResponseEntity.ok(chairsDTOS);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getChairById(@PathVariable Integer id) throws BadRequestException {
+        return ResponseEntity.ok(chairService.findById(id));
+    }
     @PostMapping()
     public ResponseEntity<?> addChair(@Valid @RequestBody ChairsDTO chairsDTO) {
         try {
@@ -34,5 +39,17 @@ public class ChairController {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok("Added chair");
+    }
+
+    @PutMapping("/{id}")
+    public  ResponseEntity<?> updateChair(@PathVariable Integer id, @Valid @RequestBody ChairsDTO chairsDTO) throws BadRequestException {
+        chairService.updateChairs(chairsDTO,id);
+        return ResponseEntity.ok("Updated chair");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteChair(@PathVariable Integer id) throws BadRequestException {
+        chairService.deleteChairs(id);
+        return ResponseEntity.ok("Deleted chair");
     }
 }

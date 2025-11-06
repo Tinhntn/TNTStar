@@ -41,12 +41,6 @@ public class ShowsDTO {
     @Size(min=0, max = 255, message = "End time exceed the allowed number of characters")
     private String endTime;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
 
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
@@ -63,11 +57,7 @@ public class ShowsDTO {
         this.releaseDate = shows.getReleaseDate();
         this.startTime = shows.getStartTime();
         this.endTime = shows.getEndTime();
-        this.createdDate = shows.getCreatedDate();
-        this.modifiedDate = shows.getModifiedDate();
         this.idCreator = shows.getCreator().getId();
-        this.createdDate = shows.getCreatedDate();
-        this.modifiedDate = shows.getModifiedDate();
         this.status = shows.isStatus();
     }
 }

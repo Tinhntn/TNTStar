@@ -28,13 +28,6 @@ public class CinemaDTO {
     @Size(min = 1, max = 255, message = "Address exceed the allowed number of characters")
     private String address;
 
-    @NotNull(message = " Create date can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
     private int idCreator;
@@ -48,8 +41,6 @@ public class CinemaDTO {
         this.cinemaCode = cinema.getCinemaCode();
         this.cinemaName = cinema.getCinemaName();
         this.address = cinema.getAddress();
-        this.createdDate = cinema.getCreatedDate();
-        this.modifiedDate = cinema.getModifiedDate();
         this.idCreator = cinema.getCreator().getId();
         this.idEditor = cinema.getEditor().getId();
         this.status = cinema.isStatus();

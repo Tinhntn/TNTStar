@@ -45,13 +45,6 @@ public class InvoiceDTO {
     private  String qrcode;
 
     @NotEmpty(message = "Creator can't be empty")
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
-    @NotEmpty(message = "Creator can't be empty")
     @Min(value = 0, message = "Invalid creator id!")
     private int idCreator;
 
@@ -67,10 +60,8 @@ public class InvoiceDTO {
         this.totalPrice = invoice.getTotalPrice();
         this.paymentType = invoice.getPaymentType();
         this.qrcode = invoice.getQrcode();
-        this.createdDate = invoice.getCreatedDate();
-        this.modifiedDate = invoice.getModifiedDate();
         this.idCreator = invoice.getCreator().getId();
-        this.idEditor = invoice.getEditor().getId();
+        this.idEditor =  invoice.getEditor()!=null?invoice.getEditor().getId():0;
         this.status = invoice.isStatus();
     }
 }

@@ -23,19 +23,11 @@ public class FormatDTO {
     @Size(min = 1, max = 255, message = "Format name exceed the allowed number of characters")
     private String formatName;
 
-    @JsonFormat(shape =  JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate createdDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
-    private LocalDate modifiedDate;
-
     private boolean status;
 
     public FormatDTO(Format format) {
         this.formatCode = format.getFormatCode();
         this.formatName = format.getFormatName();
-        this.createdDate = format.getCreatedDate();
-        this.modifiedDate = format.getModifiedDate();
         this.status = format.isStatus();
     }
 }

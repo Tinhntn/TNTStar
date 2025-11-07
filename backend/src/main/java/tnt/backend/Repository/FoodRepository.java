@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import tnt.backend.Entity.Food;
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Integer> {
+    boolean existsByFoodCode(String foodCode);
 }

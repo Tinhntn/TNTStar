@@ -6,4 +6,5 @@ import tnt.backend.Entity.Genre;
 
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
+    boolean existsByGenreCode(String genreCode);
 }

@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import tnt.backend.Entity.Language;
 @Repository
 public interface LanguageRepository extends JpaRepository<Language, Integer> {
+    boolean existsByLanguageCode(String languageCode);
 }
